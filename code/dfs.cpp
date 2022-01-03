@@ -14,6 +14,41 @@ void DFS(const adj_list &graph, int start)
     std::vector<bool> visited(graph.size(), false);
     std::vector<int> depths(graph.size(), -1);
 
+    depths[start] = 0;
+    stack.push_back(start);
+
+    while(!stack.empty())
+    {
+        curr_node = stack.back();
+        stack.pop_back();
+
+        if (visited[curr_node])
+        {
+            continue;
+        }
+
+        std::cout << "node: " << curr_node << " (level: " << depths[curr_node] << ")" << std::endl;
+        visited[curr_node] = true;
+
+        for (const auto& el : graph.at(curr_node))
+        {
+            if (!visited[el])
+            {
+                stack.push_back(el);
+                depths[el] = depths[curr_node] + 1;
+            }
+        }
+    }
+}
+
+// Colouring vertices when adding to the stack
+void DFS_2(const adj_list &graph, int start)
+{
+    int curr_node;
+    std::vector<int> stack;
+    std::vector<bool> visited(graph.size(), false);
+    std::vector<int> depths(graph.size(), -1);
+
     visited[start] = true;
     depths[start] = 0;
     stack.push_back(start);
