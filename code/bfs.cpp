@@ -53,3 +53,10 @@ int main()
 
     return 0;
 }
+
+/* 
+NOTES
+- typically implemente on a queue
+- use list for queue for O(1) pop_front()
+- can use std::queue instead of the std::list
+ */

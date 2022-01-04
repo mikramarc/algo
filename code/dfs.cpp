@@ -41,7 +41,7 @@ void DFS(const adj_list &graph, int start)
     }
 }
 
-// Colouring vertices when adding to the stack
+// Version with coloring vertices when adding to the stack
 void DFS_2(const adj_list &graph, int start)
 {
     int curr_node;
@@ -90,3 +90,10 @@ int main()
 
     return 0;
 }
+
+/* 
+NOTES
+- typically implemente on stack
+- you don't add nodes to stack one by one like it would seem from the concept, you add to stack by layers (sets of neighbours)
+- color only when removing from stack from easier understanding
+ */
