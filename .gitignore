@@ -29,6 +29,9 @@
 *.exe
 *.out
 *.app
+*
+!/**/
+!*.*
 
 # Python byte code
 *.pyc
