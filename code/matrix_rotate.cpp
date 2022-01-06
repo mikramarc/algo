@@ -58,11 +58,7 @@ void rotate_matrix_in_place(vector<vector<int> >& input, int s)
             input[s - j - 1][i/2] = rd;
             input[i/2][j] = ld;
 
-        // print_matrix(input);
-        // cout << "--------" << endl;
         }
-
-
     }
 }
 
@@ -74,10 +70,6 @@ int main()
 
     int r = 5;
     int c = 5;
-    // vector<vector<int> > matrix = {{44, 93, 78, 34},
-    //                                {16, 62, 53, 37},
-    //                                {86, 65, 70, 79},
-    //                                {11, 12, 13, 14}};
 
     vector<vector<int> > matrix;
     for (int i = 0; i < r; ++i)

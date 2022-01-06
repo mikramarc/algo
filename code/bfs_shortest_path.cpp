@@ -101,7 +101,6 @@ int main()
 
 /* 
 NOTES
-- typically implemente on a queue
-- use list for queue for O(1) pop_front()
-- can use std::queue instead of the std::list
+- instead of translating to graph form just make method that gives adj nodes
+- if not all nodes in adj list, use map instead of vector for coloring
  */
