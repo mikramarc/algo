@@ -108,7 +108,6 @@ int main()
 
 /* 
 NOTES
-- typically implemente on stack
-- you don't add nodes to stack one by one like it would seem from the concept, you add to stack by layers (sets of neighbours)
-- color only when removing from stack from easier understanding
+- use one stack for regular dfs, another stack to keep path to each node, and map for constant time lookup if is on path
+- remove from path stack number of elements equal (last_element_on_stack_level - current_level)
  */
