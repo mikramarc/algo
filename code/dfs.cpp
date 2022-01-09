@@ -2,10 +2,9 @@
 #include <map>
 #include <list>
 #include <vector>
+#include <unordered_set>
 
 typedef std::map<int, std::list<int> > adj_list;
-
-// TODO: Write recursive version too
 
 void DFS(const adj_list &graph, int start)
 {
@@ -71,6 +70,27 @@ void DFS_2(const adj_list &graph, int start)
     }
 }
 
+void DFS_recursive(const adj_list &graph, int start, int depth, std::unordered_set<int>& ancestors, std::vector<bool>& visited)
+{
+    visited[start] = true;
+    std::cout << "node: " << start << ", depth: " << depth << std::endl;
+    std::cout << "ancestors:" << std::endl;
+    for (const auto& x : ancestors)  // remove for actual implementation
+    {
+        std::cout << "\t" << x << std::endl;
+    }
+
+    for (const auto& x : graph.at(start))
+    {
+        if (!visited[x])
+        {
+            ancestors.insert(start);
+            DFS_recursive(graph, x, depth + 1, ancestors, visited);
+            ancestors.remove(start);
+        }
+    }
+}
+
 int main()
 {
     adj_list graph;
@@ -87,6 +107,11 @@ int main()
     graph.insert(std::pair<int,std::list<int> >(9, {}));
 
     DFS(graph, 0);
+
+    std::vector<bool> visited(graph.size(), false);
+    std::unordered_set<int> ancestors;
+
+    DFS_recursive(graph, 0, 0, ancestors, visited);
 
     return 0;
 }
